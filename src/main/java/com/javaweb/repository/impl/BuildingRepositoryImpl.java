@@ -7,17 +7,22 @@ import com.javaweb.repository.Entity.BuildingEntity;
 import com.javaweb.util.ConnectJDBC_Util;
 import com.javaweb.util.NumberUtil;
 import com.javaweb.util.StringUtil;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Repository;
 
 import java.lang.reflect.Field;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
+
 import java.util.stream.Collectors;
+
+
 
 @Repository
 public class BuildingRepositoryImpl implements BuildingRepository {
+
     public static void joinTable(BuildingSearchBuilder buildingSearchBuilder, StringBuilder sql){
         Long staffId = buildingSearchBuilder.getStaffId();
         if(staffId != null){
@@ -39,7 +44,7 @@ public class BuildingRepositoryImpl implements BuildingRepository {
 
     public void queryNormal(BuildingSearchBuilder buildingSearchBuilder, StringBuilder where){
         try {
-            Field[] fields = BuildingEntity.class.getDeclaredFields();
+            Field[] fields = BuildingSearchBuilder.class.getDeclaredFields();
             for(Field field : fields){
                 field.setAccessible(true);
                 String fieldName = field.getName();
@@ -50,7 +55,7 @@ public class BuildingRepositoryImpl implements BuildingRepository {
                             where.append(" AND b." + fieldName + " = " + value);
                         }
                         else if(field.getType().getName().equals("java.lang.String")){
-                            where.append(" AND b." + fieldName + " = '" + value + "'");
+                            where.append(" AND b." + fieldName + " like '%" + value + "%'");
                         }
                     }
                 }
@@ -111,7 +116,7 @@ public class BuildingRepositoryImpl implements BuildingRepository {
                 building.setName(rs.getString("b.name"));
                 building.setWard(rs.getString("ward"));
                 building.setStreet(rs.getString("street"));
-                building.setDistrict(rs.getLong("b.districtid"));
+                building.setDistrictId(rs.getLong("b.districtid"));
                 building.setNumberOfBasement(rs.getInt("numberofbasement"));
                 building.setManagerName(rs.getString("managername"));
                 building.setPhoneNumber(rs.getString("managerphonenumber"));

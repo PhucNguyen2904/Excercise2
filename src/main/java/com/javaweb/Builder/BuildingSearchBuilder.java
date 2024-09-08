@@ -4,11 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BuildingSearchBuilder {
-    private final Long id;
     private final String name;
     private final String ward;
     private final String street;
-    private final Long districtcode;
+    private final Long districtId;
     private final Integer numberOfBasement;
     private List<String> typeCode = new ArrayList<String>();
     private final String managerName;
@@ -21,11 +20,11 @@ public class BuildingSearchBuilder {
     private final Long staffId;
 
     public BuildingSearchBuilder(Builder builder) {
-        this.id = builder.id;
+
         this.name = builder.name;
         this.ward = builder.ward;
         this.street = builder.street;
-        this.districtcode = builder.districtcode;
+        this.districtId = builder.districtId;
         this.numberOfBasement = builder.numberOfBasement;
         this.typeCode = builder.typeCode;
         this.managerName = builder.managerName;
@@ -38,9 +37,6 @@ public class BuildingSearchBuilder {
         this.staffId = builder.staffId;
     }
 
-    public Long getId() {
-        return id;
-    }
 
     public String getName() {
         return name;
@@ -54,8 +50,8 @@ public class BuildingSearchBuilder {
         return street;
     }
 
-    public Long getDistrictCode() {
-        return districtcode;
+    public Long getDistrictId() {
+        return districtId;
     }
 
     public Integer getNumberOfBasement() {
@@ -98,11 +94,11 @@ public class BuildingSearchBuilder {
         return staffId;
     }
     public static class Builder {
-        private Long id;
+
         private String name;
         private String ward;
         private String street;
-        private Long districtcode;
+        private Long districtId;
         private Integer numberOfBasement;
         private List<String> typeCode = new ArrayList<String>();
         private String managerName;
@@ -114,10 +110,7 @@ public class BuildingSearchBuilder {
         private Long areaTo;
         private Long staffId;
 
-        public Builder setId(Long id) {
-            this.id = id;
-            return this;
-        }
+
 
         public Builder setName(String name) {
             this.name = name;
@@ -134,8 +127,8 @@ public class BuildingSearchBuilder {
             return this;
         }
 
-        public Builder setDistrictCode(Long districtcode) {
-            this.districtcode = districtcode;
+        public Builder setDistrictId(Long districtId) {
+            this.districtId = districtId;
             return this;
         }
 

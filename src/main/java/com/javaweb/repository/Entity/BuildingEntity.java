@@ -1,20 +1,65 @@
 package com.javaweb.repository.Entity;
 
+
+//import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
+//@Entity
+//@Table(name = "building")
+
 public class BuildingEntity {
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+//    @Column(name = "name")
     private String name;
+//    @Column(name = "ward")
     private String ward;
+//    @Column(name = "street")
     private String street;
-    private Long district;
+//    @Column(name = "districtid")
+    private Long districtId;
+//    @Column(name = "numberofnasement")
     private Integer numberOfBasement;
+//    @Column(name = "managername")
     private String managerName;
+//    @Column(name = "phonenumber")
     private String phoneNumber;
+//    @Column(name = "floorarea")
     private Integer floorArea;
+//    @Column(name = "rentarea")
     private String rentArea;
+//    @Column(name = "remeinarea")
     private Integer remeinArea;
+//    @Column(name = "rentprice")
     private Integer rentPrice;
+//    @Column(name = "servicefee")
     private Integer serviceFee;
+//    @Column(name = "brokeragefee")
     private Integer brokerageFee;
+
+//    @ManyToOne
+//    @JoinColumn(name = "districtid")
+//    private DistrictEntity district;
+
+//    @OneToMany(mappedBy = "building",fetch = FetchType.LAZY)
+//    private List<RentAreaEntity> rentAreas = new ArrayList<>();
+//    public DistrictEntity getDistrict() {
+//        return district;
+//    }
+
+//    public void setDistrict(DistrictEntity district) {
+//        this.district = district;
+//    }
+//
+//    public List<RentAreaEntity> getRentAreas() {
+//        return rentAreas;
+//    }
+//
+//    public void setRentAreas(List<RentAreaEntity> rentAreas) {
+//        this.rentAreas = rentAreas;
+//    }
 
     public Long getId() {
         return id;
@@ -48,12 +93,12 @@ public class BuildingEntity {
         this.street = street;
     }
 
-    public Long getDistrict() {
-        return district;
+    public Long getDistrictId() {
+        return districtId;
     }
 
-    public void setDistrict(Long district) {
-        this.district = district;
+    public void setDistrictId(Long districtId) {
+        this.districtId = districtId;
     }
 
     public Integer getNumberOfBasement() {

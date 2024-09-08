@@ -2,6 +2,8 @@ package com.javaweb.util;
 
 import java.sql.*;
 
+
+
 public class ConnectJDBC_Util {
     static final String DB_URL = "jdbc:mysql://localhost:3306/real_estate1";
     static final String USER = "root";

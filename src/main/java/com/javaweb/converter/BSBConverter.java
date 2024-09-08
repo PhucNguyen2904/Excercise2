@@ -12,13 +12,12 @@ import java.util.Map;
 public class BSBConverter {
     public BuildingSearchBuilder toBuildingSearchBuilder(Map<String,Object> params, List<String> typeCode){
         BuildingSearchBuilder buildingSearchBuilder = new BuildingSearchBuilder.Builder()
-                                                         .setId(MapUtil.getObject(params,"id", Long.class))
                                                          .setName(MapUtil.getObject(params,"name", String.class))
                                                          .setFloorArea(MapUtil.getObject(params,"floorarea", Long.class))
                                                          .setWard(MapUtil.getObject(params,"ward", String.class))
                                                          .setStreet(MapUtil.getObject(params,"district", String.class))
                                                          .setTypeCode(typeCode)
-                                                         .setDistrictCode(MapUtil.getObject(params,"districtcode", Long.class))
+                                                         .setDistrictId(MapUtil.getObject(params,"districtid", Long.class))
                                                          .setNumberOfBasement(MapUtil.getObject(params,"numberofbasement", Integer.class))
                                                          .setManagerName(MapUtil.getObject(params,"managername", String.class))
                                                          .setPhoneNumber(MapUtil.getObject(params,"managerphonenumber", String.class))

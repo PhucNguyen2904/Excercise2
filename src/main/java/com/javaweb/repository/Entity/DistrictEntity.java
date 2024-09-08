@@ -1,9 +1,32 @@
 package com.javaweb.repository.Entity;
 
+//import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
+
+//@Entity
+//@Table(name = "district")
 public class DistrictEntity {
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+//    @Column(name = "name")
     private String name;
+//    @Column(name = "code")
     private String code;
+
+
+//    @OneToMany(mappedBy = "district", fetch = FetchType.LAZY)
+//    private List<BuildingEntity> buildings = new ArrayList<>();
+
+//    public List<BuildingEntity> getBuildings() {
+//        return buildings;
+//    }
+//
+//    public void setBuildings(List<BuildingEntity> buildings) {
+//        this.buildings = buildings;
+//    }
 
     public Long getId() {
         return id;
