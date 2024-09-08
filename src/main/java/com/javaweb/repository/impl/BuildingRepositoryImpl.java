@@ -39,7 +39,7 @@ public class BuildingRepositoryImpl implements BuildingRepository {
 
     public void queryNormal(BuildingSearchBuilder buildingSearchBuilder, StringBuilder where){
         try {
-            Field[] fields = BuildingEntity.class.getDeclaredFields();
+            Field[] fields = BuildingSearchBuilder.class.getDeclaredFields();
             for(Field field : fields){
                 field.setAccessible(true);
                 String fieldName = field.getName();
