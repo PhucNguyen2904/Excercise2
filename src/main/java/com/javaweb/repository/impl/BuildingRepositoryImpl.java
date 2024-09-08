@@ -21,7 +21,14 @@ import java.util.stream.Collectors;
 
 
 @Repository
+@PropertySource("classpath:application-uat.properties")
 public class BuildingRepositoryImpl implements BuildingRepository {
+    @Value("${spring.datasource.url}")
+    private String DB_URL;
+    @Value("${spring.datasource.username}")
+    private String USER;
+    @Value("${spring.datasource.password}")
+    private String PASS;
 
     public static void joinTable(BuildingSearchBuilder buildingSearchBuilder, StringBuilder sql){
         Long staffId = buildingSearchBuilder.getStaffId();
@@ -107,7 +114,7 @@ public class BuildingRepositoryImpl implements BuildingRepository {
         queryNormal(buildingSearchBuilder,where);
         querySpecial(buildingSearchBuilder,where);
         sql.append(where.toString());
-        try(Connection conn = ConnectJDBC_Util.getConnection()){
+        try(Connection conn = DriverManager.getConnection(DB_URL, USER, PASS)){
             Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(sql.toString());
             while(rs.next()){

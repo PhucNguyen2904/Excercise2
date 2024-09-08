@@ -13,7 +13,7 @@ import java.util.Map;
 
 
 @RestController
-
+@PropertySource("classpath:application.properties")
 public class BuildingAPI {
     @Autowired
     private BuildingService buildingService;
